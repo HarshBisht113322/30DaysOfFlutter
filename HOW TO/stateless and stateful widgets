@@ -1,0 +1,10 @@
+stateless widgets are widgets that stay the same in run time
+stateless widgets are widgets that make a change in real time
+
+in the login page 
+---> we have --> class LoginPage extends StatelessWidget {}
+but the username is changing too because the TextFormField() extends a stateful widget inside the stateless
+
+so we select the StatelessWidget in the class above and click the bulb
+then select change to stateful
+it will create a ---> class _LoginPageState extends State<LoginPage>

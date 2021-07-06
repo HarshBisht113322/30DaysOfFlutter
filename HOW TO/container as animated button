@@ -1,0 +1,85 @@
+instead of elevated button we can make a button through container 
+
+remove the elevated button and add a container 
+
+** A CONTAINER CAN NOT BE TAPPED SO WE WRAP IT WITH InkWell widget 
+in this we use onTap and enter the same thing as onPressed in the elevated code
+
+InkWell(
+
+   onTap: (){
+     Navigator.pushNamed(context, MyRoutes.homeRoute);     //from onPress
+   },
+   
+   child: Container(
+     width: 150,
+     height: 50,
+     // color: Colors.deepPurple,
+     alignment: Alignment.center,
+     
+     child: Text(
+       "Login",
+       style: TextStyle(
+       color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18,),
+     ),
+ 
+     decoration: BoxDecoration(
+       color: Colors.deepPurple,
+       borderRadius: BorderRadius.circular(8),
+     ),
+   ),
+ ),
+
+****** NOW ANIMATION
+
+create a bool false statement in the top
+bool changeButton = false;
+
+not in the onTap:
+changeButton = true;
+
+
+child: container  --> child: AnimatedContainer
+
+child: AnimatedContainer(
+  duration: Duration(seconds: 1),
+
+  width: changeButton? 50:150,    // THE CONDITIONAL STATEMENT that if changeButton is true reduce the size
+  
+  height: 50,
+  // color: Colors.deepPurple,
+  alignment: Alignment.center,
+)
+
+The button radius :
+borderRadius: BorderRadius.circular(changeButton? 20:8),
+
+can even use :
+shape: changeButton? BoxShape.circle:BoxShape.rectangle,
+
+
+******** NOW AN ICON WHEN WE CLICK THE Login
+change child: Text with :
+
+child: changeButton ? Icon(Icons.done, color: Colors.white) : Text(
+  "Login",
+  style: TextStyle(
+  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18,),
+),
+
+
+********* NOW TO CHANGE THE PAGE:
+add async to the onTap button
+and write the following code : 
+await Future.delayed(Duration(seconds: 1));
+  Navigator.pushNamed(context, MyRoutes.homeRoute);
+
+
+onTap: () async{
+  // Navigator.pushNamed(context, MyRoutes.homeRoute);     //from onPress
+  setState(() {
+    changeButton = true;
+  });
+  await Future.delayed(Duration(seconds: 1));
+  Navigator.pushNamed(context, MyRoutes.homeRoute);
+},

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:testing/Pages/home_page.dart';
-import 'package:testing/Pages/login_page.dart'; //import this package
+import 'package:testing/Pages/login_page.dart';
+import 'package:testing/utils/routes.dart'; //import this package
 
 void main() {
   runApp(
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
+        fontFamily: GoogleFonts.lato().fontFamily,
       ),
 
       // darkTheme: ThemeData(
@@ -30,12 +33,21 @@ class MyApp extends StatelessWidget {
       //       .dark, //enabling this maked it dark all over overriding the red below
       // ),
 
-      initialRoute: "/home",    //without this the default first page of the app is "/" as specified below
-      
+      // initialRoute: "/home",    //without this the default first page of the app is "/" as specified below
+
       routes: {
-        "/": (context) => LoginPage(),
-        "/home": (context) => HomePage(),
-        "/login": (context) => LoginPage(),
+        // ignore: prefer_const_constructors
+        "/": (context) => LoginPage(), //make it like this so first file is the login page
+        // ignore: prefer_const_constructors
+        "/home": (context) => HomePage(),  //---------------------------this is ignored so that we can add the routes
+
+
+        // ignore: prefer_const_constructors
+        MyRoutes.homeRoute: (context) => HomePage(),
+        // ignore: prefer_const_constructors
+        "/login": (context) => LoginPage(), //---------------------------this is ignored so that we can add the routes
+        // ignore: prefer_const_constructors
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }

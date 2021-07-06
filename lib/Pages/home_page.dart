@@ -11,9 +11,10 @@ class HomePage extends StatelessWidget {
     String name = "Codepur";
 
     return Scaffold(
-      //change material eith Scaffold
+      //change material with Scaffold
 
       appBar: AppBar(
+        // ignore: prefer_const_constructors
         title: Text('Catalog App'),
       ),
 
@@ -24,6 +25,7 @@ class HomePage extends StatelessWidget {
               'Welcome to $days days of flutter by $name!'), //$days --> antropolation
         ),
       ),
+      // ignore: prefer_const_constructors
       drawer: Drawer(), //That 3 line side icon to open a list.
     );
   }

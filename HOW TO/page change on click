@@ -1,0 +1,17 @@
+****************LOGIN TO HOMEPAGE :
+
+1. make utils folder in lib
+2. make a routes.dart file in it
+3. replace in main.dart:
+        "/login": (context) => LoginPage(), --> with --> MyRoutes.loginRoute: (context) => LoginPage(),
+        and same with the homepage 
+4. then use the onPress in the login button page and use navigator:
+ElevatedButton(
+                    child: Text("Login"),
+                    style: TextButton.styleFrom(
+                      minimumSize: Size(150, 40)
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    },
+                  ),

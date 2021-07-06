@@ -1,0 +1,6 @@
+{
+    "problems.autoReveal": false,
+    "outline.problems.colors": false,
+    "dart.showMainCodeLens": false,
+    "editor.fontSize": 16
+}

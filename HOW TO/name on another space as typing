@@ -1,0 +1,19 @@
+use onChange in the username class
+
+add a string in the main login class :
+String name = "";
+
+Then add $name in front of welcome string 
+
+and then 
+
+Then use this in the TextFormField of the userName:
+
+onChanged: (value){
+                      name = value;
+                      setState(() {});
+                    },
+
+setState calls the build the right way
+
+This will add the text in front of welcome as you type it in the username box
